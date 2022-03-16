@@ -1,11 +1,12 @@
-import prefixURL from "./utils/helper";
+// import prefixURL from "./utils/helper";
 
 const io = require("socket.io")(8900, {
     cors: {
         origin: "https://ftchrapp.herokuapp.com/"
     }
 });
-// up
+// https://ftchrapp.herokuapp.com/
+// http://localhost:3000
 // heroku fron end website
 
 // how to send to the same user every time
