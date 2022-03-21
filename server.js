@@ -11,7 +11,7 @@ const app = express();
 // LOCAL
 // app.use(cors());
 
-DEPLOYED
+// DEPLOYED
 app.use(cors({
   origin:"https://ftchrapp.herokuapp.com/" 
 }))
@@ -22,7 +22,7 @@ const URL = process.env.URL || "http://localhost:3000";
 const httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
-    origin: ["http://localhost:3000","https://ftchrapp.herokuapp.com/"],
+    origin: ["https://ftchrapp.herokuapp.com/"],
     credentials: true
   }
 });
