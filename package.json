@@ -1,17 +1,22 @@
 {
   "name": "socket",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Socket.io Server for FTCHr",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "npm run socket",
+    "dev": "nodemon server",
+    "socket": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.15",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
     "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
   }
 }
