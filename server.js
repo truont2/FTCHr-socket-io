@@ -22,7 +22,7 @@ const URL = process.env.URL || "http://localhost:3000";
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: ["https://ftchrapp.herokuapp.com/"],
+    origin: "https://ftchrapp.herokuapp.com",
     credentials: true
   }
 });
