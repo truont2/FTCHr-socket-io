@@ -1,13 +1,38 @@
-// import prefixURL from "./utils/helper";
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 
-const io = require("socket.io")(8900, {
-    cors: {
-        origin: "https://ftchrapp.herokuapp.com/"
-    }
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+// if we don't run this we get a CORS error
+
+// LOCAL
+// app.use(cors());
+
+DEPLOYED
+app.use(cors({
+  origin:"https://ftchrapp.herokuapp.com/" 
+}))
+
+const PORT = process.env.PORT || 4000;
+const URL = process.env.URL || "http://localhost:3000";
+
+const httpServer = createServer();
+const io = new Server(httpServer, {
+  cors: {
+    origin: ["http://localhost:3000","https://ftchrapp.herokuapp.com/"],
+    credentials: true
+  }
 });
-// https://ftchrapp.herokuapp.com/
-// http://localhost:3000
-// heroku fron end website
+
+// const io = require("socket.io")(8900, {
+//     cors: {
+//         origin: "https://ftchrapp.herokuapp.com/"
+//     }
+// });
+
 
 // how to send to the same user every time
 // this only inlcudes users that are online currently
@@ -62,3 +87,7 @@ io.on("connection", (socket) => {
         io.emit("getUsers", users)
     })
 })
+
+httpServer.listen(PORT, function () {
+    console.log(`listening on port ${PORT}`)
+  })
