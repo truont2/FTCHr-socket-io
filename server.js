@@ -19,7 +19,7 @@ app.use(cors({
 const PORT = process.env.PORT || 4000;
 const URL = process.env.URL || "http://localhost:3000";
 
-const httpServer = createServer();
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: ["https://ftchrapp.herokuapp.com/"],
